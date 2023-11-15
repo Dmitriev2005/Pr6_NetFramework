@@ -1,0 +1,75 @@
+﻿<Window x:Class="Pr6_NetFramework.Autorisation.SigIn"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pr6_NetFramework.Autorisation"
+        mc:Ignorable="d"
+        Title="Войти" Height="550" Width="500"
+        Closing="Window_Closing">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Content="Авторизация" FontSize="24" Grid.Column="1" VerticalAlignment="Center"/>
+
+        <Grid Grid.ColumnSpan="3" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Content="ФИО" FontSize="20" Grid.Row="1"/>
+            <TextBox x:Name="tbName" Text="{Binding Name}" Grid.Column="1" Grid.Row="1"  Height="50" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        </Grid>
+        <Grid Grid.ColumnSpan="3" Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Логин" FontSize="20" Grid.Column="0" Grid.Row="0" />
+            <TextBox x:Name="tbLogin" Text="{Binding Login}" Grid.Column="1" Grid.Row="0"  Height="50" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+            
+            <Label Content="Пароль" FontSize="20" Grid.Column="0" Grid.Row="1"/>
+            <TextBox x:Name="tbPass" Text="{Binding Password}" Grid.Column="1" Grid.Row="1"  Height="50" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+            
+        </Grid>
+        <Grid Grid.Row="3" Grid.ColumnSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Роль" FontSize="20"/>
+            <ComboBox x:Name="cmbRole" Grid.Column="1" Grid.ColumnSpan="2" />
+            <Label Content="CAPTHCA" Grid.Column="0" Grid.Row="1"/>
+            <Label x:Name="lbGenerateCap" Grid.Column="1" Grid.Row="1"/>
+            <TextBox x:Name="tbCaptha" Grid.Column="2" Grid.Row="1"/>
+            <Button Content="Войти" Grid.Column="1" Grid.Row="2" Height="35" x:Name="btnSigIn" Click="btnSigIn_Click"/>
+        </Grid>
+        
+    </Grid>
+</Window>

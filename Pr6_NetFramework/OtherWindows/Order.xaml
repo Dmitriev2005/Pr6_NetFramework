@@ -1,0 +1,54 @@
+﻿<Window x:Class="Pr6_NetFramework.OtherWindows.Order"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pr6_NetFramework.OtherWindows"
+        mc:Ignorable="d"
+        Title="Заказы" Height="450" Width="800" Closing="Window_Closing">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0" Content="Сменить пользователя" Width="100" HorizontalAlignment="Left" Click="Button_Click"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label x:Name="lbCurrentUser" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right"/>
+
+            <Button Content="Добавить" x:Name="btnAdd" Click="btnAdd_Click" Grid.Row="1" Grid.Column="0"/>
+            <Button Content="Изменить" x:Name="btnEdit" Click="btnEdit_Click" Grid.Row="1" Grid.Column="1"/>
+            <Button Content="Удалить" x:Name="btnDel" Click="btnDel_Click" Grid.Row="1" Grid.Column="2"/>
+        </Grid>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Visible" Grid.Row="2">
+            <DataGrid x:Name="grOrder" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Номер заказа"  Binding="{Binding id}"/>
+                    <DataGridTextColumn Header="Состав заказа"  Binding="{Binding Sostav_zakaza}"/>
+                    <DataGridTextColumn Header="Дата заказа" Binding="{Binding Data_zakaza}"/>
+                    <DataGridTextColumn Header="Дата выдачи" Binding="{Binding Data_vidochi}"/>
+                    <DataGridTextColumn Header="Пункт выдочи" Binding="{Binding Punkt_vidochi}"/>
+                    <DataGridTextColumn Header="ФИО клиента" Binding="{Binding FIO_clienta}"/>
+                    <DataGridTextColumn Header="Код получения" Binding="{Binding Kod_poluchenia}"/>
+                    <DataGridTextColumn Header="Статус заказа" Binding="{Binding Status_zakaza}"/>
+
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </ScrollViewer>
+        <Menu>
+            <MenuItem Header="Товары" Click="MenuItem_Click"/>
+            <MenuItem Header="Заказы" Click="MenuItem_Click"/>
+            <MenuItem Header="Пункты выдачи" Click="MenuItem_Click"/>
+        </Menu>
+    </Grid>
+</Window>

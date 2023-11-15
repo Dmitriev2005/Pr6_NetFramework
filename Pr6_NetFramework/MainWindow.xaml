@@ -1,0 +1,55 @@
+﻿<Window x:Class="Pr6_NetFramework.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pr6_NetFramework"
+        mc:Ignorable="d"
+        Title="Товары" Height="450" Width="800"
+        Closing="Window_Closing">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label x:Name="lbCurrentUser" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right"/>
+            <Button Grid.Row="0" Content="Сменить пользователя" Width="100" HorizontalAlignment="Left" Click="Button_Click"/>
+
+            <Button Content="Добавить" x:Name="btnAdd" Click="btnAdd_Click" Grid.Row="1" Grid.Column="0"/>
+            <Button Content="Изменить" x:Name="btnEdit" Click="btnEdit_Click" Grid.Row="1" Grid.Column="1"/>
+            <Button Content="Удалить" x:Name="btnDel" Click="btnDel_Click" Grid.Row="1" Grid.Column="2"/>
+        </Grid>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Visible" Grid.Row="2">
+
+            <DataGrid Name="grProducts" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    
+                    <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Height="50" Width="50" Source="{Binding Izobrazhenie}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Наименование" Width="200" Binding="{Binding Naimenovanie}"/>
+                <DataGridTextColumn Header="Описание товара" Width="175" Binding="{Binding Opisanie}"/>
+                <DataGridTextColumn Header="Производитель" Width="175" Binding="{Binding Proizvoditel}"/>
+                <DataGridTextColumn Header="Цена" Width="175" Binding="{Binding Stoimst}"/>
+            </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
+        
+    </Grid>
+    
+</Window>
